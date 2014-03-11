@@ -25,6 +25,7 @@ class ScansController < ApplicationController
   # POST /scans.json
   def create
     @scan = Scan.new(scan_params)
+    @scan.run
 
     respond_to do |format|
       if @scan.save
@@ -69,6 +70,6 @@ class ScansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scan_params
-      params.require(:scan).permit(:username, :score)
+      params.require(:scan).permit(:username)
     end
 end
