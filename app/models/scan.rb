@@ -26,8 +26,9 @@ class Scan < ActiveRecord::Base
   end
 
   def get_users_statuses
-    #  GET statuses/user_timeline -> can get 200 at a time total
-      # GET statuses/retweets_of_me -> most retweets if you want
+    tweets = @client.user_timeline(self.username, count: 200)
+    # GET statuses/user_timeline -> can get 200 at a time total
+    # GET statuses/retweets_of_me -> most retweets if you want
   end
 
   def get_users_connections
@@ -42,11 +43,7 @@ class Scan < ActiveRecord::Base
       config.consumer_key     = SKETCH_METER_ACCESS_TOKEN
       config.consumer_secret  = SKETCH_METER_ACCESS_TOKEN_SECRET
     end
-
-
-
   end
-
 
 
 end
