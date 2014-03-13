@@ -1,4 +1,5 @@
 class Scan < ActiveRecord::Base
+  has_many :tweets
 
   SKETCH_METER_ACCESS_TOKEN = ENV['SKETCH_METER_ACCESS_TOKEN']
   SKETCH_METER_ACCESS_TOKEN_SECRET = ENV['SKETCH_METER_ACCESS_TOKEN_SECRET']
@@ -9,8 +10,6 @@ class Scan < ActiveRecord::Base
     get_users_statuses
 
     get_users_connections
-
-
 
   end
 
@@ -26,9 +25,14 @@ class Scan < ActiveRecord::Base
   end
 
   def get_users_statuses
-    tweets = @client.user_timeline(self.username, count: 200)
+    full_tweets = @client.user_timeline(self.username, count: 200)
     # GET statuses/user_timeline -> can get 200 at a time total
     # GET statuses/retweets_of_me -> most retweets if you want
+
+    # .full_text
+    # .created_at
+    # .id
+
   end
 
   def get_users_connections
