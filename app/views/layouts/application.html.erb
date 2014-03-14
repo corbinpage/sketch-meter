@@ -8,7 +8,7 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body class="background-dark" style>
+  <body>
     <header>
       <%= render 'layouts/navigation' %>
     </header>
@@ -17,4 +17,13 @@
        <%= yield %>
     </main>
   </body>
+  <footer>
+  <nav role="navigation" id="footerBar">
+    <div id="footerDiv">
+      <a class = "footerLinks" href="https://github.com/corbinpage/sketch-meter" target="_blank">About</a>
+      <div class = "footerText">|</div>
+      <a class = "footerLinks" href="https://twitter.com/corbin_page" target="_blank">Contact</a>
+    </div>  
+  </nav>
+</footer>
 </html>
