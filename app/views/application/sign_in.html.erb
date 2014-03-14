@@ -1,0 +1,47 @@
+<div class="single-widget-container">
+    <section class="widget login-widget">
+        <header class="text-align-center">
+            <h4>Sign into your Twitter Account</h4>
+        </header>
+        <div class="body">
+            <%= form_for(@scan,:html => {class: "no-margin"}) do |f| %>
+                <fieldset>
+                    <div class="form-group no-margin">
+                        <%= f.label :username %>
+                        <div class="input-group input-group-lg">
+                                <span class="input-group-addon">
+                                    <i class="eicon-user"></i>
+                                </span>
+                            <%= f.text_field :username, value: "corbin_page", class: "form-control input-lg", placeholder: "Twitter Handle" %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" >Password</label>
+
+                        <div class="input-group input-group-lg">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            <input id="password" type="password" class="form-control input-lg" name="scan[password]"
+                                   placeholder="Your Password">
+                        </div>
+
+                    </div>
+                </fieldset>
+                <div class="form-actions">
+                    <%= f.submit "Start Scan", class: "btn btn-block btn-lg btn-danger"  %>
+                        <span class="small-circle"><i class="fa fa-caret-right"></i></span>
+                        <small>Sign In</small>
+                    </button>
+                      <div class="actions">
+                    <div class="forgot"><!-- <a class="forgot" href="#">Forgot Username or Password?</a> --></div>
+                </div>
+            <% end %>
+        </div>
+<!--         <footer>
+            <div class="facebook-login">
+                <a href="index.html"><span><i class="fa fa-facebook-square fa-lg"></i> LogIn with Facebook</span></a>
+            </div>
+        </footer> -->
+    </section>
+</div>

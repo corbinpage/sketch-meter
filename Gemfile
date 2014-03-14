@@ -18,12 +18,11 @@ group :assets do
 
   # Bootstrap
   gem 'bootstrap-sass'
-  # # For Light Blue theme
+  # gem 'bootstrap-sass-rails'
+  # For Light Blue theme
   # gem 'compass-rails'
   # gem 'compass-susy-plugin'
 end
-
-
 
 ###Databases
 group :production do

@@ -1,7 +1,9 @@
 SketchMeter::Application.routes.draw do
   resources :scans
 
-  root "scans#new" 
+  get '/sign_in' => 'application#sign_in'
+
+  root "scans#index" 
 
 
   # The priority is based upon order of creation: first created -> highest priority.
