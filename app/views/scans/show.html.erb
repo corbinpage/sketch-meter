@@ -10,5 +10,31 @@
   <%= @scan.score %>
 </p>
 
+<% unless @scan.tweets.empty? %>
+<p>
+  <div class="CSSTableGenerator">
+  <table>
+    <tr>
+      <td>Text</td>
+      <td>Score</td> 
+      <td>Dirty Words</td>
+      <td>Sentiment Score</td>
+      <td>Sentiment Summary</td>
+    </tr>
+    <% @scan.tweets.each do |t| %>
+      <tr>
+        <td><%= t.text %></td>
+        <td><%= t.score %></td>
+        <td><%= t.dirty_words %></td>
+        <td><%= t.sentiment_score %></td>
+        <td><%= t.sentiment_summary %></td>
+      </tr>
+    <% end %>  
+  </table>
+</div>
+</p>
+<% end %>
+
+
 <%= link_to 'Edit', edit_scan_path(@scan) %> |
 <%= link_to 'Back', scans_path %>

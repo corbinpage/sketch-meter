@@ -1,28 +1,27 @@
-<h1>Listing scans</h1>
+<h1>Listing All Scans</h1>
 
+<div class="CSSTableGenerator">
 <table>
-  <thead>
     <tr>
-      <th>Username</th>
-      <th>Score</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <td>Username</td>
+      <td>Sketch Score</td>
+      <!-- <td>Average Sentiment (-3 to 3)</td> -->
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
-  </thead>
-
-  <tbody>
     <% @scans.each do |scan| %>
       <tr>
         <td><%= scan.username %></td>
         <td><%= scan.score %></td>
+        <!-- <td><%= scan.average_sentiment %></td> -->
         <td><%= link_to 'Show', scan %></td>
         <td><%= link_to 'Edit', edit_scan_path(scan) %></td>
-        <td><%= link_to 'Destroy', scan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Destroy', scan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
 </table>
+</div>
 
 <br>
 

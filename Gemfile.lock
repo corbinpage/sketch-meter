@@ -28,6 +28,8 @@ GEM
     addressable (2.3.5)
     arel (4.0.2)
     atomic (1.1.15)
+    bootstrap-sass (3.1.1.0)
+      sass (~> 3.2)
     buftok (0.2.0)
     builder (3.1.4)
     coffee-rails (4.0.1)
@@ -64,6 +66,7 @@ GEM
     multi_json (1.9.0)
     multipart-post (2.0.0)
     naught (1.0.0)
+    obscenity (1.0.2)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -76,6 +79,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.3)
       sprockets-rails (~> 2.0.0)
+    rails_layout (1.0.11)
     railties (4.0.3)
       actionpack (= 4.0.3)
       activesupport (= 4.0.3)
@@ -92,6 +96,7 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    sentimental (1.0.3)
     simple_oauth (0.2.0)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -130,12 +135,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  obscenity
   rails (= 4.0.3)
+  rails_layout
   sass-rails (~> 4.0.0)
   sdoc
+  sentimental
   sqlite3
   twitter
   uglifier (>= 1.3.0)

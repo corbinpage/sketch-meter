@@ -6,6 +6,15 @@ gem 'rails', '4.0.3'
 # Twitter Gem
 gem 'twitter'
 
+# Profanity Checker
+gem 'obscenity'
+
+# Sentiment Analysis
+gem "sentimental"
+
+# Bootstrap
+gem 'bootstrap-sass'
+
 ###Databases
 group :production do
   # gem 'postgres'
@@ -15,6 +24,9 @@ end
 group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  # Bootstrap
+  gem 'rails_layout'  
 end
 #############
 
