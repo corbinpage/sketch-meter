@@ -1,5 +1,6 @@
 class ScansController < ApplicationController
   before_action :set_scan, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /scans
   # GET /scans.json

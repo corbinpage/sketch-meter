@@ -1,7 +1,6 @@
 SketchMeter::Application.routes.draw do
+  devise_for :users
   resources :scans
-
-  get '/sign_in' => 'application#sign_in'
 
   root "scans#new" 
 
