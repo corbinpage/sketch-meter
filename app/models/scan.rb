@@ -1,12 +1,8 @@
 class Scan < ActiveRecord::Base
   has_many :tweets, :dependent => :destroy
 
-  SKETCH_METER_ACCESS_TOKEN = ENV['SKETCH_METER_ACCESS_TOKEN']
-  SKETCH_METER_ACCESS_TOKEN_SECRET = ENV['SKETCH_METER_ACCESS_TOKEN_SECRET']
 
   def run
-    initialize_twitter_client
-
     return unless user_exsts?
 
     get_users_statuses
@@ -27,7 +23,7 @@ class Scan < ActiveRecord::Base
   end
 
   def get_users_statuses
-    full_tweets = @client.user_timeline(self.username, count: 200)
+    full_tweets = Tweet.client.user_timeline(self.username, count: 200)
 
     # Set Obscenity configs
     Obscenity.configure do |config|
@@ -66,12 +62,9 @@ class Scan < ActiveRecord::Base
     # GET users/lookup -> hydrated user object
   end
 
-  def initialize_twitter_client
-    @client = Twitter::REST::Client.new do |config|
-      config.consumer_key     = SKETCH_METER_ACCESS_TOKEN
-      config.consumer_secret  = SKETCH_METER_ACCESS_TOKEN_SECRET
-    end
-
+  def initialize_services
+    Tweet.initialize_twitter_client
+    
     Sentimental.load_defaults
     Sentimental.threshold = 0.1
     @analyzer = Sentimental.new

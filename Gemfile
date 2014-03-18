@@ -35,8 +35,11 @@ group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
-  # Bootstrap
-  gem 'rails_layout'  
+  #Make development easier
+  gem 'quiet_assets'
+  gem "better_errors"
+  gem "binding_of_caller"
+
 end
 #############
 

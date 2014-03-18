@@ -9,52 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap
+ *= require override
  */
-
-html, body {
-  height: 100%;
-}
-
-footer {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-}
-
-  #footerBar {
-    background-color: #7F2A06;
-    border-color: #7F2A06;
-    width:100%;
-    height:35px;
-  }
-
-  #footerDiv{
-    width:130px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .footerText {
-    color:  #999;
-    font-family:sans-serif;
-    line-height: 20px;
-    text-decoration:none;
-    float:left;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px
-  }
-
-  .footerLinks {
-    color:  #999;
-    font-family:sans-serif;
-    line-height: 20px;
-    text-decoration:none;
-    float:left;
-    margin-top: 10px
-  }
-
-  .footerLinks:hover{
-    color:white;
-  }

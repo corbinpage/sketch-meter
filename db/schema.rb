@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313181055) do
+ActiveRecord::Schema.define(version: 20140317152841) do
 
   create_table "scans", force: true do |t|
     t.string   "username"
@@ -36,5 +36,12 @@ ActiveRecord::Schema.define(version: 20140313181055) do
   end
 
   add_index "tweets", ["scan_id"], name: "index_tweets_on_scan_id"
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
