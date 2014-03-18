@@ -1,6 +1,8 @@
 class Tweet < ActiveRecord::Base
   belongs_to :scan
 
+  @@client
+
   SKETCH_METER_ACCESS_TOKEN = ENV['SKETCH_METER_ACCESS_TOKEN']
   SKETCH_METER_ACCESS_TOKEN_SECRET = ENV['SKETCH_METER_ACCESS_TOKEN_SECRET']
 
@@ -9,6 +11,10 @@ class Tweet < ActiveRecord::Base
       config.consumer_key     = SKETCH_METER_ACCESS_TOKEN
       config.consumer_secret  = SKETCH_METER_ACCESS_TOKEN_SECRET
     end
+  end
+
+  def self.client
+    @@client
   end
 
 end

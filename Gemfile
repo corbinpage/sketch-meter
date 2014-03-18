@@ -12,6 +12,9 @@ gem 'obscenity'
 # Sentiment Analysis
 gem "sentimental"
 
+# Authentication
+gem 'devise'
+
 group :assets do
   # Use SCSS for stylesheets
   gem 'sass-rails', '~> 4.0.0'

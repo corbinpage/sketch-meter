@@ -13,7 +13,7 @@ class Scan < ActiveRecord::Base
 
   def user_exsts?
     # begin
-      @user = @client.user(self.username)
+      @user = Tweet.client.user(self.username)
       self.error = "Success"
       true
     # rescue
@@ -23,14 +23,9 @@ class Scan < ActiveRecord::Base
   end
 
   def get_users_statuses
-    full_tweets = Tweet.client.user_timeline(self.username, count: 200)
+    sentiment_analyzer = Sentimental.new
 
-    # Set Obscenity configs
-    Obscenity.configure do |config|
-      config.blacklist   = "config/blacklist.yml"
-      config.whitelist   = ["Corbin!"]
-      config.replacement = :garbled
-    end
+    full_tweets = Tweet.client.user_timeline(self.username, count: 200)
 
     total_score = 0
     total_sentiment = 0
@@ -39,14 +34,13 @@ class Scan < ActiveRecord::Base
                             twitter_id: t.id, scan_id: self.id)
 
       dirty_words = Obscenity.offensive(t.full_text)
-      # sentiment = Sentimentalizer.analyze(t.full_text)
 
       new_tweet.score = dirty_words.count
       total_score += new_tweet.score
       new_tweet.dirty_words = dirty_words.join(', ')
-      new_tweet.sentiment_score = @analyzer.get_score(t.full_text)
+      new_tweet.sentiment_score = sentiment_analyzer.get_score(t.full_text)
       total_sentiment = new_tweet.sentiment_score
-      new_tweet.sentiment_summary = @analyzer.get_sentiment(t.full_text)
+      new_tweet.sentiment_summary = sentiment_analyzer.get_sentiment(t.full_text)
       new_tweet.save
     end
     self.score = total_score
@@ -56,21 +50,9 @@ class Scan < ActiveRecord::Base
   end
 
   def get_users_connections
-
     # GET friends/list -> Following usernames+descriptions
     # GET followers/list -> Followers
     # GET users/lookup -> hydrated user object
   end
-
-  def initialize_services
-    Tweet.initialize_twitter_client
-    
-    Sentimental.load_defaults
-    Sentimental.threshold = 0.1
-    @analyzer = Sentimental.new
-
-    @client
-  end
-
 
 end
