@@ -3,6 +3,7 @@ class Scan < ActiveRecord::Base
 
 
   def run
+    Tweet.initialize_twitter_client
     return unless user_exsts?
 
     get_users_statuses

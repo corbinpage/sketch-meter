@@ -43,13 +43,14 @@ main {
 
 .navbar-footer {
   height: 100%;
+  padding-top: 10px;
 }
 
 .footer-list {
   position: relative;
   list-style: none;
   display: table;
-  margin: 10px auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 .footer-list * {
@@ -62,11 +63,6 @@ main {
 .footer-list a:hover {
   color:white;
   text-decoration:none;
-}
-
-.footer-list .footer-link:hover {
-  background-color: #27ae60;
-  border-color: #27ae60;
 }
 
 /*------Scans/new------*/
