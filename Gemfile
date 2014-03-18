@@ -6,20 +6,45 @@ gem 'rails', '4.0.3'
 # Twitter Gem
 gem 'twitter'
 
+# Profanity Checker
+gem 'obscenity'
+
+# Sentiment Analysis
+gem "sentimental"
+
+# Authentication
+gem 'devise'
+
+group :assets do
+  # Use SCSS for stylesheets
+  gem 'sass-rails', '~> 4.0.0'
+
+  # Bootstrap
+  gem 'bootstrap-sass'
+
+  # gem 'bootstrap-sass-rails'
+  # For Light Blue theme
+  # gem 'compass-rails'
+  # gem 'compass-susy-plugin'
+end
+
 ###Databases
-# group :production do
-#   gem 'pg', '0.15.1'
-#   gem 'rails_12factor', '0.0.2'
-# end
+group :production do
+  # gem 'postgres'
+  # gem 'rails_12factor'
+end
 
 group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  #Make development easier
+  gem 'quiet_assets'
+  gem "better_errors"
+  gem "binding_of_caller"
+
 end
 #############
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -32,6 +57,11 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+
+
+# For Light Blue theme
+gem "jquery-pjax-rails", "~> 1.7.3.1"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'

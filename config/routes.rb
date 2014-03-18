@@ -1,7 +1,9 @@
 SketchMeter::Application.routes.draw do
-  root "scan#new" 
-
+  devise_for :users
   resources :scans
+
+  root "scans#new" 
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

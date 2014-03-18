@@ -1,5 +1,6 @@
 class ScansController < ApplicationController
   before_action :set_scan, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /scans
   # GET /scans.json
@@ -10,6 +11,7 @@ class ScansController < ApplicationController
   # GET /scans/1
   # GET /scans/1.json
   def show
+    @scan = Scan.find(params[:id])
   end
 
   # GET /scans/new
@@ -24,7 +26,8 @@ class ScansController < ApplicationController
   # POST /scans
   # POST /scans.json
   def create
-    @scan = Scan.new(scan_params)
+    @scan = Scan.create(scan_params)
+    @scan.run
 
     respond_to do |format|
       if @scan.save
@@ -54,6 +57,7 @@ class ScansController < ApplicationController
   # DELETE /scans/1
   # DELETE /scans/1.json
   def destroy
+    puts @scan.inspect
     @scan.destroy
     respond_to do |format|
       format.html { redirect_to scans_url }
@@ -69,6 +73,6 @@ class ScansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scan_params
-      params.require(:scan).permit(:username, :score)
+      params.require(:scan).permit(:username)
     end
 end
