@@ -5,7 +5,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 body > .container {
@@ -16,14 +16,19 @@ main {
   height: 100%;
 }
 
-.navbar-inverse {
-  background-color: #7F8EFF;
-  border-color: #7F8EFF;
+.navbar {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
 }
 
-.navbar-inverse .navbar-nav > li > a {
+.navbar .navbar-nav > li > a {
   color:black;
   text-decoration:none;
+}
+
+.navbar .navbar-nav > li:hover {
+  background-color: #27ae60;
+  border-color: #27ae60;
 }
 
 #footer {
@@ -31,30 +36,39 @@ main {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #7F8EFF;
-  border-color: #7F8EFF;
-  text-align: center;
+  height: 40px;
+  background-color: #2ecc71;
+  border-color: #2ecc71;
 }
 
-#footer * {
+.navbar-footer {
+  height: 100%;
+}
+
+.footer-list {
+  position: relative;
+  list-style: none;
+  display: table;
+  margin: 10px auto 0 auto;
+}
+
+.footer-list * {
+  color:black;
   padding-right: 5px;
   padding-left: 5px;
   display: inline;
 }
 
-#footer a {
-  color:black;
+.footer-list a:hover {
+  color:white;
   text-decoration:none;
 }
 
-#footer div {
-  color:black;
+.footer-list .footer-link:hover {
+  background-color: #27ae60;
+  border-color: #27ae60;
 }
 
-#footer a:hover {
-  color:white;
-}
 /*------Scans/new------*/
 .form-signin {
   max-width: 330px;
