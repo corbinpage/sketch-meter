@@ -1,5 +1,7 @@
 SketchMeter::Application.routes.draw do
-  devise_for :users
+  resources :authentications
+  devise_for :users, controllers: { sessions: "users/sessions" }
+  get '/auth/:provider/callback' => 'authentications#create'
   resources :scans
 
   root "scans#new" 
