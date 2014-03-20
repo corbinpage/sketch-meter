@@ -7,7 +7,10 @@ SketchMeter::Application.routes.draw do
   get '/auth/:provider/callback' => 'authentications#create'
   
   resources :scans
-  get 'dashboard' => 'scans#dashboard', as: :dashboard
+
+  get 'dashboard1' => 'dashboards#dashboard1'
+  get 'dashboard2' => 'dashboards#dashboard2'
+  get 'dashboard3' => 'dashboards#dashboard3'
 
 
   root "application#home" 
