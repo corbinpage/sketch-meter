@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318164938) do
+ActiveRecord::Schema.define(version: 20140319004226) do
+
+  create_table "authentications", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "scans", force: true do |t|
     t.string   "username"
     t.integer  "score"
     t.string   "error"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "average_sentiment"
@@ -37,9 +46,31 @@ ActiveRecord::Schema.define(version: 20140318164938) do
 
   add_index "tweets", ["scan_id"], name: "index_tweets_on_scan_id"
 
+  create_table "twitter_details", force: true do |t|
+    t.string   "oauth_token_secret"
+    t.string   "oauth_token"
+    t.datetime "account_created_at"
+    t.string   "description"
+    t.integer  "favorites_count"
+    t.integer  "followers_count"
+    t.integer  "following_count"
+    t.string   "location"
+    t.string   "name"
+    t.string   "user_name"
+    t.string   "background_image_url"
+    t.string   "profile_image_url"
+    t.integer  "total_tweets"
+    t.string   "website_url"
+    t.string   "twitter_url"
+    t.string   "twitter_uid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "encrypted_password",     default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

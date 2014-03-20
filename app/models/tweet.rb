@@ -3,13 +3,13 @@ class Tweet < ActiveRecord::Base
 
   @@client
 
-  SKETCH_METER_ACCESS_TOKEN = ENV['SKETCH_METER_ACCESS_TOKEN']
-  SKETCH_METER_ACCESS_TOKEN_SECRET = ENV['SKETCH_METER_ACCESS_TOKEN_SECRET']
+  SKETCH_METER_CONSUMER_KEY = ENV['SKETCH_METER_CONSUMER_KEY']
+  SKETCH_METER_CONSUMER_SECRET = ENV['SKETCH_METER_CONSUMER_SECRET']
 
   def self.initialize_twitter_client
     @@client = Twitter::REST::Client.new do |config|
-      config.consumer_key     = SKETCH_METER_ACCESS_TOKEN
-      config.consumer_secret  = SKETCH_METER_ACCESS_TOKEN_SECRET
+      config.consumer_key     = SKETCH_METER_CONSUMER_KEY
+      config.consumer_secret  = SKETCH_METER_CONSUMER_SECRET
     end
   end
 

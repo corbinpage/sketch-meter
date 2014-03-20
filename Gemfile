@@ -14,6 +14,7 @@ gem "sentimental"
 
 # Authentication
 gem 'devise'
+gem 'omniauth-twitter'
 
 group :assets do
   # Use SCSS for stylesheets

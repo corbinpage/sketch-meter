@@ -14,6 +14,11 @@ class ScansController < ApplicationController
     @scan = Scan.find(params[:id])
   end
 
+  # GET /dashboard
+  def dashboard
+    @scan = current_user.scans.last
+  end
+
   # GET /scans/new
   def new
     @scan = Scan.new
@@ -27,6 +32,7 @@ class ScansController < ApplicationController
   # POST /scans.json
   def create
     @scan = Scan.create(scan_params)
+    @scan.user = current_user
     @scan.run
 
     respond_to do |format|

@@ -1,8 +1,16 @@
 SketchMeter::Application.routes.draw do
-  devise_for :users
+  resources :authentications
+  post 'users/create' => 'users#create'
+  get 'users/new' => 'users#new', as: :sign_up
+  get 'application' => 'application#home', as: :splash
+  devise_for :users, controllers: { sessions: "users/sessions" }
+  get '/auth/:provider/callback' => 'authentications#create'
+  
   resources :scans
+  get 'dashboard' => 'scans#dashboard', as: :dashboard
 
-  root "scans#new" 
+
+  root "application#home" 
 
 
   # The priority is based upon order of creation: first created -> highest priority.
