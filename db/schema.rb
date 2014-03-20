@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140319004226) do
     t.string   "username"
     t.integer  "score"
     t.string   "error"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "average_sentiment"
