@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  oauth_token_secret: MyString
+  oauth_token: MyString
+  account_created_at: 2014-03-18 20:42:26
+  description: MyString
+  favorites_count: 1
+  followers_count: 1
+  following_count: 1
+  location: MyString
+  name: MyString
+  background_image_url: MyString
+  profile_image_url: MyString
+  total_tweets: 1
+  website: MyString
+  twitter_uid: MyString
+  user_id: 1
+
+two:
+  oauth_token_secret: MyString
+  oauth_token: MyString
+  account_created_at: 2014-03-18 20:42:26
+  description: MyString
+  favorites_count: 1
+  followers_count: 1
+  following_count: 1
+  location: MyString
+  name: MyString
+  background_image_url: MyString
+  profile_image_url: MyString
+  total_tweets: 1
+  website: MyString
+  twitter_uid: MyString
+  user_id: 1
